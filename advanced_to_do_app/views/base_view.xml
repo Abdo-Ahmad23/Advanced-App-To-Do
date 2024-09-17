@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <menuitem id="to_do_app_root"
+            name="To Do App"
+                  web_icon="advanced_to_do_app,static/description/icon.png"
+        />
+        <menuitem id="employee_menu"
+            name="Employee"
+            parent="to_do_app_root"
+        />
+        <menuitem id="task_menu"
+            name="Tasks"
+            parent="to_do_app_root"
+        />
+        <menuitem id="project_menu"
+            name="Projects"
+            parent="to_do_app_root"
+        />
+        <menuitem id="manager_menu"
+            name="Managers"
+            parent="to_do_app_root"
+        />
+
+        
+
+
+
+
+
+        
+
+
+
+
+
+    </data>
+
+
+
+
+</odoo>
