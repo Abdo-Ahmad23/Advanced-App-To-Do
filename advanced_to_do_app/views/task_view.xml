@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_task_tree" model="ir.ui.view">
+        <field name="name">task.tree</field>
+        <field name="model">task</field>
+        <field name="arch" type="xml">
+            <tree string="Task Tree" class="text-center" decoration-danger="state == 'new'" decoration-warning="state == 'in_progress'" decoration-success="state == 'completed'">
+                <field name="name" class="text-start"/>
+                <field name="assign_to"/>
+                <field name="description"/>
+                <field name="due_date"/>
+                <field name="start_time" />
+                <field name="end_time" />
+                <field name="total_time" />
+                <field name="active" />
+
+                <field class="btn btn-seconary" name="state" decoration-danger="state == 'new'" decoration-warning="state == 'in_progress'" decoration-success="state == 'completed'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_task_form" model="ir.ui.view">
+        <field name="name">task.form</field>
+        <field name="model">task</field>
+        <field name="arch" type="xml">
+            <form string="My Model Form">
+                <header>
+                       <button  name="action_in_progress" type="object" class="oe_highlight" string="Start"
+                                attrs="{'invisible': [('state', '!=', 'new')]}"/>
+                       <button  name="action_completed" type="object" class="oe_highlight btn btn-primary" string="Completed"
+                                attrs="{'invisible': [('state', '!=', 'in_progress')]}"/>
+                       <field name="state" widget="statusbar" statusbar_visible="new,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="assign_to"/>
+                        <field name="description"/>
+                        <field name="due_date"/>
+                        <field name="active" invisible="1"/>
+                        <field name="start_time" attrs="{'invisible': [('start_time', '=', False)]}"/>
+                        <field name="end_time" attrs="{'invisible': [('end_time', '=', False)]}"/>
+                        <field name="total_time" attrs="{'invisible': [('end_time', '=','00:00:00')]}"/>
+
+                        <!-- <field name="active"/> -->
+                    </group>
+                    <notebook>
+                    <page string="Subtasks">
+                        <field name="subtask_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="state" decoration-danger="state == 'new'" decoration-warning="state == 'in_progress'" decoration-success="state == 'completed'"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                </sheet>
+                <div class="oe_chatter" >
+                   <field name="message_follower_ids"/>
+                   <field name="activity_ids"/>
+                   <field name="message_ids"/>
+               </div>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- Action to open the model -->
+    <record id="action_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">task</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new record.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="tasks_menu_list" name="All Tasks" parent="task_menu" action="action_task"/>
+</odoo>

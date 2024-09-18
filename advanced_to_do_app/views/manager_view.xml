@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_manager_tree" model="ir.ui.view">
+        <field name="name">manager.tree</field>
+        <field name="model">manager</field>
+        <field name="arch" type="xml">
+            <tree string="manager Tree">
+                <field name="name"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_manager_form" model="ir.ui.view">
+        <field name="name">manager.form</field>
+        <field name="model">manager</field>
+        <field name="arch" type="xml">
+            <form string="My Model Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        
+                    </group>
+                </sheet>
+                <div class="oe_chatter" >
+                   <field name="message_follower_ids"/>
+                   <field name="activity_ids"/>
+                   <field name="message_ids"/>
+               </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the model -->
+    <record id="action_manager" model="ir.actions.act_window">
+        <field name="name">managers</field>
+        <field name="res_model">manager</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new record.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="managers_menu_list" name="All Managers" parent="manager_menu" action="action_manager"/>
+</odoo>
