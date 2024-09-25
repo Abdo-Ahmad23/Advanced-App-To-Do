@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee,access_employee,model_employee,,1,1,1,1
+access_manager,access_manager,model_manager,,1,1,1,1
+access_project,access_project,model_project,,1,1,1,1
+access_project_lines,access_project_lines,model_project_task_line,,1,1,1,1
+access_task,access_task,model_task,,1,1,1,1
+access_subtask,access_subtask,model_subtask,,1,1,1,1
