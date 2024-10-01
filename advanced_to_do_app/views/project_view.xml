@@ -78,7 +78,7 @@
         </field>
     </record>
 
-    <!-- Action to open the model -->
+    <!-- Action to open model -->
     <record id="action_project" model="ir.actions.act_window">
         <field name="name">projects</field>
         <field name="res_model">project</field>
