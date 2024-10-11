@@ -23,3 +23,13 @@
 
         - Commenting features on tasks and projects for improved communication among team members.
         - Notifications and reminders to keep users informed about deadlines and task updates.
+
+# Technology Stack:
+    - Odoo: The application is built within the Odoo framework, leveraging its powerful features for business applications.
+    - Python: Used for server-side logic and data manipulation within the Odoo environment.
+    - PostgreSQL: The relational database used to store user data, projects, and tasks.
+    - JavaScript: Enhancements for interactivity and dynamic content within the user interface.
+    - XML: Used for defining views and layouts in Odoo.
+    - CSS and Bootstrap: For styling the application, ensuring a responsive and modern user interface.
+
+### This repository serves as a complete guide to developing a robust task management system using Odoo, showcasing how to utilize Python, PostgreSQL, JavaScript, XML, CSS, and Bootstrap effectively for a seamless user experience.
